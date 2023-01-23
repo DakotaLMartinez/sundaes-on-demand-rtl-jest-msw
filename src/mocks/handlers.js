@@ -6,21 +6,13 @@ export const handlers = [
       ctx.status(200),
       ctx.json([
         {
-          name: "Mint chip",
+          name: "Chocolate",
           imagePath: "/images/mint-chip.png",
         },
         {
           name: "Vanilla",
           imagePath: "/images/vanilla.png",
-        },
-        {
-          name: "Chocolate",
-          imagePath: "/images/chocolate.png",
-        },
-        {
-          name: "Salted caramel",
-          imagePath: "/images/salted-caramel.png",
-        },
+        }
       ])
     );
   }),
