@@ -78,3 +78,62 @@ test("order phases for happy path", async () => {
 
   unmount();
 });
+
+test("toppings don't appear on order summary if none are ordered", async () => {
+  const user = userEvent.setup();
+  const { container, unmount } = render(<App />);
+
+  const orderButton = screen.getByRole("button", { name: "Order Sundae!" });
+  expect(orderButton).toBeDisabled();
+  const vanillaInput = await screen.findByRole("spinbutton", {
+    name: "Vanilla",
+  });
+  await user.clear(vanillaInput);
+  await user.type(vanillaInput, "2");
+  expect(orderButton).toBeEnabled();
+
+  await user.click(orderButton);
+
+  const toppingsHeader = await screen.queryByRole("heading", {
+    name: /Toppings:/i
+  })
+  expect(toppingsHeader).not.toBeInTheDocument();
+
+  unmount();
+})
+
+test("toppins don't appear if toppings are added and then removed", async () => {
+  const user = userEvent.setup();
+  const { container, unmount } = render(<App />);
+
+  const orderButton = screen.getByRole("button", { name: "Order Sundae!" });
+  const vanillaInput = await screen.findByRole("spinbutton", {
+    name: "Vanilla",
+  });
+  await user.clear(vanillaInput);
+  await user.type(vanillaInput, "2");
+
+  const cherriesToppingCheckbox = await screen.findByRole("checkbox", {
+    name: "Cherries"
+  })
+  // add a topping
+  await user.click(cherriesToppingCheckbox);
+  // remove the topping
+  await user.click(cherriesToppingCheckbox);
+
+  // submit order
+  await user.click(orderButton);
+
+  const scoopsHeader = await screen.getByRole("heading", {
+    name: /scoops:/i,
+  });
+  expect(scoopsHeader).toBeInTheDocument();
+
+  // ensure that toppings header doesn't appear when order doesn't include toppings
+  const toppingsHeader = screen.queryByRole("heading", {
+    name: /Toppings:/i,
+  });
+  expect(toppingsHeader).not.toBeInTheDocument();
+
+  unmount();
+})
