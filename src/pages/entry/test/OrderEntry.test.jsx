@@ -48,7 +48,7 @@ test("displays error for scoops and toppings", async () => {
 
   await waitFor(async () => {
     const alerts = await screen.findAllByText(
-      /An unexpected error occured. Please try again later/i
+      /An unexpected error occurred. Please try again later/i
     );
     expect(alerts).toHaveLength(2);
   });
