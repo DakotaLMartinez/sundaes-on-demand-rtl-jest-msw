@@ -27,3 +27,33 @@ use the msw `resetHandlers` function to override the post request response so th
 ## Do we need async/await?
 
 Yes, because we're sending a post request which will return a promise, we'll need to use an `async` testing callback with an `await` to confirm that we see an error message after getting the error response.
+
+# Displays an image for each scoop from the server
+
+## What to render?
+
+`<Options />` should display each `<ScoopOption />`
+
+## Pass props?
+
+yes, we'll need `optionType="scoops"` so our component knows to fetch scoops
+
+## Wrap render?
+
+yes, our `ScoopOption` component needs to be able to access the context to update the count, so we'll use our custom import with the context provider wrapper.
+
+## Which file for tests?
+
+src/pages/entry/test/Options.test.jsx
+
+## What to test?
+
+test that an image is displayed with a source matching the imagePath stored in our msw mocks.
+
+## How to test?
+
+We'll need to find all elements by role image and expect there to be 2 of them (because our msw handler returns an array of 2 scoop types)
+
+## Do we need async/await?
+
+yes, because we have a fetch going on here, we'll need to make our callback async
