@@ -58,6 +58,8 @@ test("order phases for happy path", async () => {
     name: /thank you/i
   })
   expect(thankYou).toBeInTheDocument();
+  // expect loading not to appear in the document after the thank you has appeared
+  expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
   // confirm order number on confirmation page
   const orderNumber = await screen.findByText(/Your order number is/);
   expect(orderNumber).toBeInTheDocument();
