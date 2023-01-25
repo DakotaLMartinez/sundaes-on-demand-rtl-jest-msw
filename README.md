@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Sundaes On Demand
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the example project built alongside Bonnie Schulkin's [React Testing Library with Jest](https://www.udemy.com/course/react-testing-library/) course. I'm including some information below about the course content and below that I'll summarize my impressions of the course and some key takeaways.
 
-## Available Scripts
+### Description
+React Testing Library has become an extremely popular option for testing React, and with good reason! This detailed, comprehensive course  provides a solid foundation for React app tests.
 
-In the project directory, you can run:
+### Best Practices
 
-### `npm start`
+React Testing Library is famously opinionated about testing best practices, and is written to encourage these best practices. This course teaches:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- testing behavior over testing implementation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- tests that interact with your app the way a user would
 
-### `npm test`
+- finding elements by accessibility handles, to make sure your code is accessible as possible
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Broad range of testing examples
 
-### `npm run build`
+The course apps start very with very simple examples (clicking a button to change its color) and work up to progressively more complicated testing concepts, such as: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- testing asynchronous page changes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- simulating data from a server using Mock Service Worker
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- applying a context provider to a component when rendering
 
-### `npm run eject`
+The course builds up to complex concepts gradually, in a way designed to support your learning and ensure your success.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Practice your new skills
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You will also have plenty of opportunities to practice what you’ve learned. The course provides "code quizzes" while building the course projects, where you can apply what you learned and then watch a video to see the solution. The (optional) final section provides even more exercises to complete the second app and reinforce concepts from the course.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## My Impressions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I really appreciated the code quizzes. I felt they were well paced, keeping you just on the edge of being comfortable but definitely not too much. I also really liked that they became more frequent towards the end of the course, so it really started to feel like we were building the app & tests based on a mockup and spec rather than just doing a codealong.
 
-## Learn More
+I also really liked the introduction of a workflow with a series of questions to ask when writing tests. I ended up making a [dash](https://kapeli.com/dash) snippet for it and using it to guide the process. Here's a breakdown of it:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Feature description
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+| Question                | Answer |
+| ----------------------- | ------ |
+| What to render?         |        |
+| Pass props?             |        |
+| Wrap render?            |        |
+| Which file for tests?   |        |
+| What to test?           |        |
+| How to test?            |        |
+| Do we need async/await? |        |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The idea is to think about the feature you're building and then ask this series of questions to determine the how/what/where of your approach to testing the components involved. I love this questions driven approach and use it a lot in my own teaching as I find it's effective at delivering lasting value to students. 
 
-### Analyzing the Bundle Size
+I came away from the course with a good sense of how to test most situations that I find myself in when building React applications. My next learning goals at the moment are to start working on integrating typescript in my work and also getting CI/CD set up for my own projects. I've worked on projects that had an integrated pipeline already set up, but never done the setup and configuration myself, so that's my current next step.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, I definitely recommend the course. I'm looking forward to doing more of Bonnie's courses in the future. In particular, I've got my eye on her [course on React Query](https://www.udemy.com/course/learn-react-query/) (TanStack Query). 
