@@ -1,5 +1,4 @@
 import { screen, render } from "@testing-library/react";
-import { logRoles } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
 import App from "../App";
@@ -7,7 +6,7 @@ import App from "../App";
 test("order phases for happy path", async () => {
   const user = userEvent.setup();
   // render app
-  const { container, unmount } = render(<App />);
+  const { unmount } = render(<App />);
   // add ice cream scoops and toppings
 
   const orderButton = screen.getByRole("button", { name: "Order Sundae!" });
@@ -28,7 +27,6 @@ test("order phases for happy path", async () => {
   await user.click(orderButton);
 
   // check summary information based on order
-  logRoles(container);
   const scoopsSummary = await screen.findByRole("heading", {
     name: "Scoops: $4.00",
   });
@@ -81,7 +79,7 @@ test("order phases for happy path", async () => {
 
 test("toppings don't appear on order summary if none are ordered", async () => {
   const user = userEvent.setup();
-  const { container, unmount } = render(<App />);
+  const { unmount } = render(<App />);
 
   const orderButton = screen.getByRole("button", { name: "Order Sundae!" });
   expect(orderButton).toBeDisabled();
@@ -94,7 +92,7 @@ test("toppings don't appear on order summary if none are ordered", async () => {
 
   await user.click(orderButton);
 
-  const toppingsHeader = await screen.queryByRole("heading", {
+  const toppingsHeader = screen.queryByRole("heading", {
     name: /Toppings:/i
   })
   expect(toppingsHeader).not.toBeInTheDocument();
@@ -104,7 +102,7 @@ test("toppings don't appear on order summary if none are ordered", async () => {
 
 test("toppins don't appear if toppings are added and then removed", async () => {
   const user = userEvent.setup();
-  const { container, unmount } = render(<App />);
+  const { unmount } = render(<App />);
 
   const orderButton = screen.getByRole("button", { name: "Order Sundae!" });
   const vanillaInput = await screen.findByRole("spinbutton", {
@@ -124,7 +122,7 @@ test("toppins don't appear if toppings are added and then removed", async () => 
   // submit order
   await user.click(orderButton);
 
-  const scoopsHeader = await screen.getByRole("heading", {
+  const scoopsHeader = await screen.findByRole("heading", {
     name: /scoops:/i,
   });
   expect(scoopsHeader).toBeInTheDocument();
