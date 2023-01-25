@@ -55,7 +55,11 @@ function App() {
               the tests so that they aligned with the new behavior. NOTE: This
               application doesn't persist any data and is actually using MSW in
               production here to simulate having a running server. Feel free to
-              check out the code on GitHub for more info on how this is done.
+              check out the{" "}
+              <a href="https://github.com/DakotaLMartinez/sundaes-on-demand-rtl-jest-msw" target="_blank" rel="noreferrer">
+                code on GitHub
+              </a>{" "}
+              for more info on how this is done.
             </p>
           </Accordion.Body>
         </Accordion.Item>
